@@ -1,8 +1,11 @@
-
+from app import app
 from app.forms import LoginForm
-@app.route('/login')
+from flask import render_template,flash,redirect
 
+@app.route('/login')
 def login():
     form = LoginForm()
-    return render_template('login.html', title="Sign in', form=form)
-
+    return render_template('login.html', title='Sign in', form=form)
+@app.route('/<name>')
+def hello_name(name):
+    return "Hello {} xd!".format(name)
